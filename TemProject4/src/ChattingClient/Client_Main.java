@@ -8,7 +8,7 @@ public class Client_Main {
 //								String IP = "192.168.0.46";
 								String IP = "127.0.0.1";
 //		int PORT = 5593;
-		int PORT = 5603;
+		int PORT = 5604;
 		
 		GUI_Access a = new GUI_Access(IP,PORT);
 		
