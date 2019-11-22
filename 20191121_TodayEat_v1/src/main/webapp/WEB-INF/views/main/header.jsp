@@ -249,9 +249,9 @@ function uploadCheck() {
 				<img src="${pageContext.request.contextPath}/resources/img/icon/Logo.svg"></a>
 			</div>
 			<div class="menu-right">
-			<form method="get" action="">
+			<form action="test.do">
 				<fieldset>
-					<input type="search" id="search-text" size="15" placeholder="레시피 검색" />
+					<input type="search" id="search-text" name="query" size="15" placeholder="레시피 검색" />
 					<input type="submit" id="search-submit" value="검색" />	
 				</fieldset>					
 			</form>
