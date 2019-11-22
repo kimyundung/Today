@@ -16,5 +16,8 @@ public interface SearchService {
 	/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 	/*찾은 레서피로 재로 가져오기*/
 	ArrayList<RecipeMaterialVO> getRecipeMaterial(ArrayList<RecipeVO> all_list_recipeVO) throws SQLException;
-
+	
+	/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+	/*전체 레시피*/
+	ArrayList<RecipeVO> getAllRecipe() throws SQLException;
 }

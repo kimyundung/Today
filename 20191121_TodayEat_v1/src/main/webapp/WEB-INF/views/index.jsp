@@ -38,7 +38,7 @@
 	}
  
 	</script>
-<!-- 한글과 띄어쓰기만 입력 가능 -->
+	<!-- 한글과 띄어쓰기만 입력 가능 -->
 	<script
 	  	src="https://code.jquery.com/jquery-1.11.0.js"
 	  	integrity="sha256-zgND4db0iXaO7v4CLBIYHGoIIudWI5hRMQrPB20j0Qw="
@@ -96,9 +96,6 @@
 </head>
 
 <body>
-
-
-  
   <!-- Navbar -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
     <div class="container-fluid">
@@ -143,13 +140,10 @@
 				</c:if>
 <!----------------------------------------------------------------------------------------MyPage--------->
 
-
         </ul>
-
       </div>
-
-    <!-- </div> -->
   </nav>
+  
   <!-- Navbar -->
   <!--Carousel Wrapper-->
   <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
@@ -199,7 +193,7 @@
               &nbsp; &nbsp; 
               <a href='javascript:void(0);' onclick="uploadCheck();" class="btn btn-outline-white btn-lg">먹지들의 레시피</a>
               &nbsp; &nbsp; 
-              <a href="test.do" class="btn btn-outline-white btn-lg">레시피 BOOK</a>
+              <a href="recipeBOOK.do" class="btn btn-outline-white btn-lg">레시피 BOOK</a>
               </div>	
            
             <!-- Content -->
@@ -234,7 +228,7 @@
               &nbsp; &nbsp; 
               <a href="my_recipe_search.do" class="btn btn-outline-white btn-lg">먹지들의 레시피</a>
               &nbsp; &nbsp; 
-              <a href="test.do" class="btn btn-outline-white btn-lg">레시피 BOOK</a>
+              <a href="recipeBOOK.do" class="btn btn-outline-white btn-lg">레시피 BOOK</a>
              </div>
             <!-- Content -->
 
@@ -268,7 +262,7 @@
               &nbsp; &nbsp; 
               <a href="my_recipe_search.do" class="btn btn-outline-white btn-lg">먹지들의 레시피</a>
               &nbsp; &nbsp; 
-              <a href="test.do" class="btn btn-outline-white btn-lg">레시피 BOOK</a>
+              <a href="recipeBOOK.do" class="btn btn-outline-white btn-lg">레시피 BOOK</a>
              </div>
             <!-- Content -->
 

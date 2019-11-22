@@ -20,21 +20,41 @@ public class SearchDAO implements SearchService {
 	
 	//SQL	
 	private final String SEARCH1 = "SELECT * FROM RECIPE WHERE RECIPE_TITLE LIKE ? OR RECIPE_INTRO LIKE ? OR RECIPE_CATEGORY LIKE ? OR RECIPE_TIP LIKE ? OR NICKNAME LIKE ?";	
-	private final String SEARCH5 = "SELECT * FROM RECIPE WHERE recipe_category = ?";
 	private final String SEARCH4 = "SELECT * FROM RECIPE WHERE RECIPE_NO = ?";
 	private final String SEARCH3 = "SELECT * FROM RECIPE_MATERIAL WHERE MATERIAL_FOOD LIKE ?";
 	private final String SEARCH2 = "SELECT * FROM RECIPE_MATERIAL WHERE RECIPE_NO = ?";
+	private final String SEARCH_ALL = "SELECT * FROM RECIPE"; 
 
 	//생성자
 	public SearchDAO() throws ClassNotFoundException, SQLException {
 		con = new TodayeatDBConn().getConnection();
 	}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/*검색어로 DB에서 recipe 빼기*/
-	/* (non-Javadoc)
-	 * @see com.todayeat.search.SearchServcie#getRecipeVO(java.util.ArrayList, java.util.ArrayList)
-	 */
+/*전체 레시피*/
+	public ArrayList<RecipeVO> getAllRecipe() throws SQLException{
+		System.out.println("\n--> JDBC로 getAllRecipe() 기능 처리");
+		ArrayList<RecipeVO> list_recipeVO = new ArrayList<RecipeVO>();
+		stmt = con.prepareStatement(SEARCH_ALL);
+		rs = stmt.executeQuery();
+		while(rs.next()) {
+			RecipeVO recipe = new RecipeVO();
+			recipe.setRecipe_no(rs.getInt("recipe_no"));
+			recipe.setRecipe_title(rs.getString("recipe_title"));
+			recipe.setRecipe_intro(rs.getString("recipe_intro"));
+			recipe.setRecipe_category(rs.getString("recipe_category"));
+			recipe.setRecipe_tip(rs.getString("recipe_tip"));
+			recipe.setRecipe_origin(rs.getString("recipe_origin"));
+			recipe.setNickname(rs.getString("nickname"));
+			recipe.setRecipe_good(rs.getInt("recipe_good"));
+			recipe.setRecipe_bad(rs.getInt("recipe_bad"));
+			recipe.setComplete_img(rs.getNString("complete_img"));
+			list_recipeVO.add(recipe);
+		}
+		return list_recipeVO;
+	}
 	
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*검색어로 DB에서 recipe 빼기*/
 	@Override
 	public ArrayList<RecipeVO>  getRecipeVO(ArrayList<SearchVO> list_searchVO_query, ArrayList<SearchVO> list_searchVO_country) throws SQLException{
 		System.out.println("\n--> JDBC로 getRecipeVO() 기능 처리");
@@ -172,19 +192,16 @@ public class SearchDAO implements SearchService {
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*찾은 레서피로 재로 가져오기*/
-	/* (non-Javadoc)
-	 * @see com.todayeat.search.SearchServcie#getRecipeMaterial(java.util.ArrayList)
-	 */
 	@Override
 	public ArrayList<RecipeMaterialVO> getRecipeMaterial(ArrayList<RecipeVO> all_list_recipeVO) throws SQLException{
 		System.out.println("\n--> JDBC로 getRecipeMaterial() 기능 처리");		
 		ArrayList<RecipeMaterialVO> list_recipeMaterialVO = new ArrayList<RecipeMaterialVO>();
 		for(int i=0;i<all_list_recipeVO.size();i++) {
-			String sql = all_list_recipeVO.get(i).getRecipe_no()+""; //숫자를 문자로
-				stmt = con.prepareStatement(SEARCH2);	//sql문을 실행공장에 넣우주기
-				stmt.setInt(1,Integer.parseInt(sql));	//sql에 필요한 인자값 전달
-				rs = stmt.executeQuery();	//실행 결과 담는 박스
-				while(rs.next()) {			//박스에 있는 데이터 VO에 담고 , VO List 에 저장
+			String sql = all_list_recipeVO.get(i).getRecipe_no()+"";//숫자를 문자로
+				stmt = con.prepareStatement(SEARCH2);				//sql문을 실행공장에 넣우주기
+				stmt.setInt(1,Integer.parseInt(sql));				//sql에 필요한 인자값 전달
+				rs = stmt.executeQuery();							//실행 결과 담는 박스
+				while(rs.next()) {									//박스에 있는 데이터 VO에 담고 , VO List 에 저장
 					RecipeMaterialVO vo = new RecipeMaterialVO();
 					vo.setRecipe_no(rs.getInt("recipe_no"));
 					vo.setMaterial_food(rs.getString("material_food"));

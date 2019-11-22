@@ -281,7 +281,7 @@ function uploadCheck() {
 			<li><a href="tip_main.do">Tip코너</a></li>
 			<li><a href="season_main.do">계절별 제철 음식</a></li>
 	        <li><a href='javascript:void(0);' onclick="uploadCheck();">레시피 등록</a></li>
-			<li><a href="test.do">레시피 Book</a></li>
+			<li><a href="recipeBOOK.do">레시피 Book</a></li>
 		</ul>
 		</div>
 			

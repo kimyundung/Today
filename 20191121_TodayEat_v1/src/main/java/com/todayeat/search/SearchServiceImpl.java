@@ -29,4 +29,10 @@ public class SearchServiceImpl implements SearchService{
 		return searchDAO1.getRecipeMaterial(all_list_recipeVO);
 	}
 
+	@Override
+	public ArrayList<RecipeVO> getAllRecipe() throws SQLException {
+		// TODO Auto-generated method stub
+		return searchDAO1.getAllRecipe();
+	}
+
 }

@@ -24,6 +24,27 @@ public class SearchController {
 	private SearchService searchService;
 	
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*recipeBOOK.do */
+	@RequestMapping(value="recipeBOOK.do", method= {RequestMethod.POST, RequestMethod.GET})
+	public String recipeAll(Model model) throws SQLException {
+		ArrayList<RecipeVO> list_recipeVO = new ArrayList<RecipeVO>();
+		ArrayList<RecipeMaterialVO> list_recipeMaterialVO = new ArrayList<RecipeMaterialVO>();
+		list_recipeVO = searchService.getAllRecipe();
+		if(list_recipeVO.size()>0) {
+			list_recipeMaterialVO = searchService.getRecipeMaterial(list_recipeVO);
+		}
+for(int i=0;i<list_recipeMaterialVO.size();i++) {
+System.out.println(list_recipeMaterialVO.get(i).getRecipe_no());
+}
+		model.addAttribute("all_recipe","all_recipe");
+		model.addAttribute("list_recipeVO",list_recipeVO);
+		model.addAttribute("list_recipeMaterialVO",list_recipeMaterialVO);
+		return "search/Search";
+	}
+	
+	
+	
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*test.do */
 		@RequestMapping(value = "test.do", method = { RequestMethod.POST , RequestMethod.GET}) 
 		public String recipeSearch(SearchVO searchVO,  Model model) throws SQLException {

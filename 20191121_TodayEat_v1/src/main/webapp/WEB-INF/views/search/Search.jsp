@@ -7,55 +7,50 @@
 <head>
 <meta charset="UTF-8">
 <title>레시피 BOOK</title>
-	<link href="${pageContext.request.contextPath}/resources/css/searchBOOK.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/searchBOOK.css" rel="stylesheet">
 </head>
-
-<!-- 한글과 띄어쓰기만 입력 가능 ------------------------------------------------------------------->
-
-	<script
-		src="https://code.jquery.com/jquery-1.11.0.js"
-	  	integrity="sha256-zgND4db0iXaO7v4CLBIYHGoIIudWI5hRMQrPB20j0Qw="
-	  	crossorigin="anonymous"></script>
-	<script type="text/javascript">
-	$(document).ready(function() {
-	 	$("input:text[name=query]").on("keyup", function() {
-		    $(this).val($(this).val().replace( /[^가-힣\s]/g,""));
-		});
-	});
-	</script>
-	
-<!-- 한글과 띄어쓰기만 입력 가능 ------------------------------------------------------------------->
-<!-- 국가 checkboxChecked -------------------------------------------------------------------->
-
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 	<script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
 	<script src="https://code.jquery.com/jquery-migrate-3.1.0.min.js"></script>
-	
+	<script
+		src="https://code.jquery.com/jquery-1.11.0.js"
+	  	integrity="sha256-zgND4db0iXaO7v4CLBIYHGoIIudWI5hRMQrPB20j0Qw="
+	  	crossorigin="anonymous"></script>
 	<script type="text/javascript">
-		 <c:forEach items="${list_country}" var="country">
-			 if("${country}"=="한식"){
-					$(document).ready(function() {
-						$("input:checkbox[id=H]").prop("checked",true);
-					});
-			 	}
-			 if("${country}"=="중식"){
-					$(document).ready(function() {
-						$("input:checkbox[id=C]").prop("checked",true);
-					});
-				}
-			 if("${country}"=="일식"){
-					$(document).ready(function() {
-						$("input:checkbox[id=J]").prop("checked",true);
-					});
-				}
-			 if("${country}"=="양식"){
-					$(document).ready(function() {
-						$("input:checkbox[id=A]").prop("checked",true);
-					});
-				}
+	
+		<!-- 한글과 띄어쓰기만 입력 가능 -->
+		$(document).ready(function() {
+		 	$("input:text[name=query]").on("keyup", function() {
+			    $(this).val($(this).val().replace( /[^가-힣\s]/g,""));
+			});
+		});
+		
+		<!-- 국가 checkboxChecked -->
+		<c:forEach items="${list_country}" var="country">
+			if("${country}"=="한식"){
+				$(document).ready(function() {
+					$("input:checkbox[id=H]").prop("checked",true);
+				});
+			 }
+			if("${country}"=="중식"){
+				$(document).ready(function() {
+					$("input:checkbox[id=C]").prop("checked",true);
+				});
+			}
+			if("${country}"=="일식"){
+				$(document).ready(function() {
+					$("input:checkbox[id=J]").prop("checked",true);
+				});
+			}
+			if("${country}"=="양식"){
+				$(document).ready(function() {
+					$("input:checkbox[id=A]").prop("checked",true);
+				});
+			}
 		</c:forEach> 
+		
 		/*이벤트처리*/
 		$(document).ready(function(){
 			//1
@@ -65,14 +60,11 @@
 			    			
 			    			var a = document.research;
 		    				a.submit();
-			    				
 			    		});
 		        }else{
 		        	$( window ).one("scroll",function() {
-		    			
 		    			var a = document.research;
 	    				a.submit();
-		    				
 		    		});
 		        }
 		    });
@@ -80,17 +72,13 @@
 		    $(".check2").change(function(){
 		        if($(".check2").is(":checked")){
 			    		$( window ).one("scroll",function() {
-			    			
 			    			var a = document.research;
 		    				a.submit();
-			    				
 			    		});
 		        }else{
 		        	$( window ).one("scroll",function() {
-		    			
 		    			var a = document.research;
 	    				a.submit();
-		    				
 		    		});
 		        }
 		    });
@@ -98,17 +86,13 @@
 		    $(".check3").change(function(){
 		        if($(".check3").is(":checked")){
 			    		$( window ).one("scroll",function() {
-			    			
 			    			var a = document.research;
 		    				a.submit();
-		    				
 			    		});
 		        }else{
 		        	$( window ).one("scroll",function() {
-		    			
 		    			var a = document.research;
 	    				a.submit();
-		    				
 		    		});
 		        }
 		    });
@@ -116,17 +100,13 @@
 		    $(".check4").change(function(){
 		        if($(".check4").is(":checked")){
 			    		$( window ).one("scroll",function() {
-			    			
 			    			var a = document.research;
 		    				a.submit();
-			    				
 			    		});
 		        }else{
 		        	$( window ).one("scroll",function() {
-		    			
 		    			var a = document.research;
 	    				a.submit();
-		    				
 		    		});
 		        }
 		    });
@@ -148,6 +128,7 @@
 	</form>
 <!-- 검색창 --------------------------------------------------------------------------------------->
 <!-- Filter 이미지 -------------------------------------------------------------------------------->
+
 	<div class="div11">
 		<c:if test="${recipe_book !=1 }">
 			<div class="div8" align="center">
@@ -202,6 +183,7 @@
 		   	</div>
 		</form>
 	</div>
+
 <!-- 검색 버튼 ---------------------------------------------------------------------------------------->
 <!-- Recipe 로고 ------------------------------------------------------------------------------------->
 	<c:if test="${!empty list_recipeVO}">
@@ -243,22 +225,29 @@
 			  			</tr>
 			  			<tr>
 			  				<c:forEach items="${list_recipeMaterialVO}" var="material" >
-			  					<c:if test="${recipe.recipe_no==material.recipe_no }">
-									<c:set var="n" value="1"/>
-									<c:forEach items="${list_searchVO}" var="search">
-										<c:if test="${n=='1' }">
-											<c:set var="a" value="${material.material_food}"/>
-											<c:set var="b" value="${search.query }"/>
-						  					<c:if test="${fn:contains(a,b)}">				  			
-							  					<td id="fontstyle0 " ><label class="highlight">${a }</label></td>
-						  						<c:set var="n" value="0"/>
-						  					</c:if>
-				  						</c:if>
-			  						</c:forEach>
-					  				<c:if test="${!fn:contains(a,b)}">
-					  					<td id="fontstyle1" >${material.material_food}</td>
-									</c:if>
-			    				</c:if>
+			  					<c:if test="${all_recipe == 'all_recipe' }">
+			  						<c:if test="${recipe.recipe_no==material.recipe_no }">
+			  						<td id="fontstyle1" >${material.material_food}</td>
+			  						</c:if>
+			  					</c:if>
+				  				<c:if test="${all_recipe != 'all_recipe' }">
+				  					<c:if test="${recipe.recipe_no==material.recipe_no }">
+										<c:set var="n" value="1"/>
+										<c:forEach items="${list_searchVO}" var="search">
+											<c:if test="${n=='1' }">
+												<c:set var="a" value="${material.material_food}"/>
+												<c:set var="b" value="${search.query }"/>
+							  					<c:if test="${fn:contains(a,b)}">				  			
+								  					<td id="fontstyle0 " ><label class="highlight">${a }</label></td>
+							  						<c:set var="n" value="0"/>
+							  					</c:if>
+					  						</c:if>
+				  						</c:forEach>
+						  				<c:if test="${!fn:contains(a,b)}">
+						  					<td id="fontstyle1" >${material.material_food}</td>
+										</c:if>
+				    				</c:if>
+				    			</c:if>
 			  				</c:forEach>
 			  			</tr>
 			  			<tr>
