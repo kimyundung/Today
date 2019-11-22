@@ -97,7 +97,6 @@ public class GUI_Chatting extends JFrame{
       
       //JTextPane
       view = new JTextPane();
-//      view = new JTextPane1(img_string);
       view.setBounds(0, 0, 484, 665);
       view.setForeground(Color.BLACK);
       view.setFont(new Font("±¼¸²",Font.BOLD,13));

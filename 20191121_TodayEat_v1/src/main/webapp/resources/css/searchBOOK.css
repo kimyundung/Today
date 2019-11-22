@@ -1,0 +1,351 @@
+@charset "utf-8";
+
+/*---------------------------------------------------------------------------------*/
+/* 검색창 */
+		.div1{							/* body & div */		
+			width: 400px;				/* width랑 margin이랑 같이 설정해야, 창크기가 달라지면서 같이 움직임 */
+		    margin: auto;
+		    //padding: 100px auto;
+		    //position: relative;
+		    //background-color: #F7CAC9;
+		    outline: 0;
+		}	
+		.div11{
+			margin: -80px 0px 100px 0px;
+			 //background-color: #F7CAC9;
+		}
+		.search1{						/* div & text */
+			margin:10px 0px auto;
+			padding: 12px 24px;
+			border-radius:50px;			/* 외관 둥굴게 만들기 */
+			border:1px solid #575756;
+			outline: 0;					/* 클릭시 파란색으로 생기는것을 없애는 것 */
+			width:300px;
+		
+		}
+		.img1{							/* 검색 이모티콘 크기 & 위치 */
+			outline:0;
+			width:20px;
+			margin:-30px 20px 30px 310px;
+		}
+/*---------------------------------------------------------------------------------*/
+/* 필터 이미지 */
+		.div2{
+			width:100px;
+			margin:20px auto;
+			//position: relative;
+			//background-color: #F7CAC9; 
+		} 
+		.img2{
+			width:200px;
+		}
+/*---------------------------------------------------------------------------------*/
+/* 체크 박스 */
+		.div3{
+			width:510px;
+			margin:20px auto; 
+			//position: relative;
+			//background-color: #F7CAC9;
+		}
+		.button1{
+			margin:0px 30px;
+			font-size:25px; 
+			font-weight:550;
+			background-color:white;
+			border:0;
+			outline:0;
+		}
+		.input1{
+			margin:0px 30px;
+		}
+
+		.switch1{					/* The switch - the box around the slider */
+			position: relative;
+			display: inline-block; 
+			width: 60px;
+			height: 34px;
+		}
+		.slider {
+			position: absolute;
+			cursor: pointer;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: #ccc;
+			-webkit-transition: .4s;
+			transition: .4s;
+		}
+		.slider:before {
+			position: absolute;
+			content: "";
+			height: 26px;
+			width: 26px;
+			left: 4px;
+			bottom: 4px;
+			background-color: white;
+			-webkit-transition: .4s;
+			transition: .4s;
+		}
+		.slider.round {
+			border-radius: 34px;
+		}
+				
+		.slider.round:before {
+			border-radius: 50%;
+		}
+		.switch input {				/* 선택자 안에서 띄어쓰기는 해당 태그 안에 태그를 선택하게 됩니다. */ 
+			opacity: 0;
+			width: 0;
+			height: 0;
+		}
+		input:checked + .slider {
+			background-color: #0B6623;
+		}
+		input:focus + .slider {
+			box-shadow: 0 0 1px #0B6623;
+		}
+		input:checked + .slider:before {
+			-webkit-transform: translateX(26px);
+			-ms-transform: translateX(26px);
+			transform: translateX(26px);
+		}
+/*---------------------------------------------------------------------------------*/
+/* 추가 검책창 */
+		.div4{							/* body & div */		
+			width: 300px;				/* width랑 margin이랑 같이 설정해야, 창크기가 달라지면서 같이 움직임 */
+		    height: 50px;
+		    margin: 0px auto; 
+		    //position: relative;
+		    //background-color: #F7CAC9; 
+
+		}				
+		.search2{						/* div & text */
+			margin: 10px 0px 0px 10px;
+			padding: 4.6px 5px;
+			outline: 0;					/* 클릭시 파란색으로 생기는것을 없애는 것 */
+			width:150px;
+		} 
+
+ 		.img3{							/* 검색 이모티콘 크기 & 위치 */
+			outline:0; 
+			width:30px;
+			margin:-28.5px 20px 30px 202px;
+		}
+/*---------------------------------------------------------------------------------*/
+/* 체크박스 */
+		.div5{							/* body & div */		
+			width: 450px;				/* width랑 margin이랑 같이 설정해야, 창크기가 달라지면서 같이 움직임 */
+		    margin: 20px auto;
+		    //padding: 0px auto;
+		    //position: relative;
+		    //background-color: #F7CAC9; 
+		}
+		.aa{
+			padding : 0 10px
+		}
+
+		.checks {position: relative;}
+
+		.checks input[type="checkbox"] {  /* 실제 체크박스는 화면에서 숨김 */
+  			position: absolute;
+  			width: 1px;
+  			height: 1px;
+ 	 		padding: 0;
+  			margin: -1px;
+  			overflow: hidden;
+  			clip:rect(0,0,0,0);
+  			border: 0
+		}
+		.checks input[type="checkbox"] + label {
+  			display: inline-block;
+  			position: relative;
+  			cursor: pointer;
+  			-webkit-user-select: none;
+  			-moz-user-select: none;
+  			-ms-user-select: none;
+		}
+		.checks input[type="checkbox"] + label:before {  /* 가짜 체크박스 */
+  			content: ' ';
+  			display: inline-block;
+  			width: 17px;  								/* 체크박스의 너비를 지정 */
+  			height: 17px;  								/* 체크박스의 높이를 지정 */
+  			line-height: 25px; 							/* 세로정렬을 위해 높이값과 일치 */
+  			margin: 1px 8px 0 0;
+  			text-align: center; 
+  			vertical-align: middle;
+  			background: #fafafa;
+  			border: 1px solid #cacece;
+  			border-radius : 3px;
+  			box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+		}
+		.checks input[type="checkbox"] + label:active:before,
+		.checks input[type="checkbox"]:checked + label:active:before {
+  			box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+		}
+
+		.checks input[type="checkbox"]:checked + label:before {  /* 체크박스를 체크했을때 */ 
+  			content: '\2714';  							/* 체크표시 유니코드 사용 */
+  			color: #99a1a7;
+  			text-shadow: 1px 1px #fff;
+  			background: #e9ecee;
+  			border-color: #adb8c0;
+  			box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+		}
+
+		.checks.small input[type="checkbox"] + label {
+  			font-size: 12px;
+		}
+
+		.checks.small input[type="checkbox"] + label:before {
+ 	 		width: 17px;
+  			height: 17px;
+  			line-height: 20px;
+  			font-size: 11px;
+		}
+		.checks.etrans input[type="checkbox"] + label {
+ 			padding-left: 30px;
+		}
+		.checks.etrans input[type="checkbox"] + label:before {
+  			position: absolute;
+  			left: 0;
+  			top: 0;
+  			margin-top: 0;
+  			opacity: .6;
+  			box-shadow: none;
+  			border-color: #0B6623;
+  			-webkit-transition: all .12s, border-color .08s;
+  			transition: all .12s, border-color .08s;
+		}
+
+		.checks.etrans input[type="checkbox"]:checked + label:before {
+  			position: absolute;
+  			content: "";
+  			width: 10px;
+  			top: -5px;
+  			left: 5px;
+  			border-radius: 0;
+  			opacity:1; 
+  			background: transparent;
+  			border-color:transparent #0B6623 #0B6623 transparent;
+  			border-top-color:transparent;
+  			border-left-color:transparent;
+  			-ms-transform:rotate(45deg);
+  			-webkit-transform:rotate(45deg);
+  			transform:rotate(45deg);
+		}
+/*---------------------------------------------------------------------------------*/
+		.div6{
+			margin:30px 0px 100px 0px;
+		}
+		
+		.div7 {
+		    //position: relative;
+		    //background-color: #F7CAC9;
+			width: 600px;
+			margin:0px auto;
+		}
+	   
+		.div8{
+			margin:100px 0px 0px 0px;
+		}
+		.div10{
+			margin:100px 0px 0px 0px;
+		}
+
+		.div9{
+			margin:200px 0px 20px 0px;
+		}
+	   .btn1 {
+	       width: 75px;
+	       height: 30px;
+	       border-radius: 1em;
+	       border: solid 1px #0B6623;
+	       background: #0B6623;
+	       color: white;
+	       outline: 0;
+      	}
+      
+      	.img4 {
+      		width: 150px;
+      		height: 150px;
+      		border-radius: 1em;
+      		outline:0;
+      	}   
+      
+      	.highlight{
+      		background-color:  #ddda6d;
+      	}
+      
+      	#float1 { float: left; padding:10px; outline: 0;}
+      
+      	#fontstyle1 {
+      		font-size:12px;
+      		//background-color:yellow;
+      	}
+
+ 	  	#fontstyle0 {
+      		font-size:12px;
+      	}
+      	
+      	input.good-btn {
+      		//background: url("${pageContext.request.contextPath}/resources/img/icon/good_icon_black.svg") no-repeat;
+      		background-size: 20px 20px;
+      		border: none;
+      		width: 20px;
+      		height: 20px;
+      		cursor: pointer;
+      		outline:0;
+      	}
+      
+      	input.bad-btn {
+      		//background: url("${pageContext.request.contextPath}/resources/img/icon/bad_icon_black.svg") no-repeat;
+      		background-size: 20px 20px;
+      		border: none;
+     	 	width: 20px;
+      		height: 20px;
+      		cursor: pointer;
+      		outline:0;
+      	}
+      
+      	#dd {
+      		padding:5px;
+      	}
+  
+  	  	.table01 {
+  	  		margin-bottom:100px;
+  	  		width:350px ;
+  	  		//background-color: #F7CAC9;
+  	  	}
+  		.label2{
+  			font-size:25px; 
+			font-weight:550;
+			color: #ddda6d;
+  		}
+	
+		body{
+			text-align:center;
+		}
+	
+		.page{
+			margin-top:210px;
+			text-align:center;
+			height: 100%;
+			min-width: 800px;
+		}
+		.contents_wrap:after{
+			content:''; 
+			display:block; 
+			clear:both; 
+			float:none;}
+		.contents_left,
+		.contents_right{
+			width:50%;
+			float:left;
+			margin:0;
+			padding:0;
+			border:1px solid #000;
+			box-sizing:border-box;
+		}
+
+			
