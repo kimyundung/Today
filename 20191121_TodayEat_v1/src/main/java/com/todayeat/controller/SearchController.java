@@ -33,9 +33,7 @@ public class SearchController {
 		if(list_recipeVO.size()>0) {
 			list_recipeMaterialVO = searchService.getRecipeMaterial(list_recipeVO);
 		}
-for(int i=0;i<list_recipeMaterialVO.size();i++) {
-System.out.println(list_recipeMaterialVO.get(i).getRecipe_no());
-}
+
 		model.addAttribute("all_recipe","all_recipe");
 		model.addAttribute("list_recipeVO",list_recipeVO);
 		model.addAttribute("list_recipeMaterialVO",list_recipeMaterialVO);

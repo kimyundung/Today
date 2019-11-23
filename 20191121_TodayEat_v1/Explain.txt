@@ -1,7 +1,9 @@
+	11/22
+header 검색 안되는거 수정
+recipeBOOK 메인으로 allrecipe 보이기 했음
+
 	11/21
 먹지들의 레시피 검색 지움.
-
-
 
 	11/13
 수정 		: season_sub 링크 넣음 (수민씨)
